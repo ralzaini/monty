@@ -3,18 +3,18 @@
 /**
  * nodes_multer - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @lineNumber: Interger representing the line number of of the opcode.
  */
-void nodes_multer(stack_t **stack, unsigned int line_number)
+void nodes_multer(stack_t **stack, unsigned int lineNumber)
 {
-	int sum;
+	int total;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		err_hand_2(8, line_number, "mul");
+		err_hand_2(8, lineNumber, "mul");
 
 	(*stack) = (*stack)->next;
-	sum = (*stack)->n * (*stack)->prev->n;
-	(*stack)->n = sum;
+	total = (*stack)->n * (*stack)->prev->n;
+	(*stack)->n = total;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
@@ -23,22 +23,22 @@ void nodes_multer(stack_t **stack, unsigned int line_number)
 /**
  * nodes_moder - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @lineNumber: Interger representing the line number of of the opcode.
  */
-void nodes_moder(stack_t **stack, unsigned int line_number)
+void nodes_moder(stack_t **stack, unsigned int lineNumber)
 {
-	int sum;
+	int total;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 
-		err_hand_2(8, line_number, "mod");
+		err_hand_2(8, lineNumber, "mod");
 
 
 	if ((*stack)->n == 0)
-		err_hand_2(9, line_number);
+		err_hand_2(9, lineNumber);
 	(*stack) = (*stack)->next;
-	sum = (*stack)->n % (*stack)->prev->n;
-	(*stack)->n = sum;
+	total = (*stack)->n % (*stack)->prev->n;
+	(*stack)->n = total;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }

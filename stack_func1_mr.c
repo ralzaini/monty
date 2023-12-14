@@ -3,24 +3,25 @@
 
 /**
  * inc_stack - Adds a node to the stack.
- * @new_node: Pointer to the new node.
- * @ln: Interger representing the line number of of the opcode.
+ * @newNode: Pointer to the new node.
+ * @line_number: Interger representing the line number of of the opcode.
  */
-void inc_stack(stack_t **new_node, __attribute__((unused))unsigned int ln)
+void inc_stack(stack_t **newNode, unsigned int line_number)
 {
-	stack_t *tmp;
+	stack_t *temp;
+	(void) line_number;
 
-	if (new_node == NULL || *new_node == NULL)
+	if (newNode == NULL || *newNode == NULL)
 		exit(EXIT_FAILURE);
-	if (head == NULL)
+	if (stackHead == NULL)
 	{
-		head = *new_node;
+		stackHead = *newNode;
 		return;
 	}
-	tmp = head;
-	head = *new_node;
-	head->next = tmp;
-	tmp->prev = head;
+	temp = stackHead;
+	stackHead = *newNode;
+	stackHead->next = temp;
+	temp->prev = stackHead;
 }
 
 

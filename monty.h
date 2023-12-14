@@ -39,12 +39,12 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-extern stack_t *head;
+extern stack_t *stackHead;
 typedef void (*op_func)(stack_t **, unsigned int);
 
 /*file operations*/
-void op_file(char *file_name);
-int pars_line(char *buffer, int line_number, int format);
+void op_file(char *fileName);
+int pars_line(char *input_buffer, int current_line, int current_format);
 void rd_file(FILE *);
 int len_at_chars(FILE *);
 void get_func(char *, char *, int, int);
@@ -76,9 +76,9 @@ void dis_string(stack_t **, unsigned int);
 void rotler(stack_t **, unsigned int);
 
 /*Error hanlding*/
-void err_hand(int error_code, ...);
-void err_hand_2(int error_code, ...);
-void err_str(int error_code, ...);
+void err_hand(int errorCode, ...);
+void err_hand_2(int errorCode, ...);
+void err_str(int errorCode, ...);
 void rotr_err(stack_t **, unsigned int);
 
 #endif

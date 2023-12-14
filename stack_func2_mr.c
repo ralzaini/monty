@@ -3,51 +3,51 @@
 /**
  * noper - Does nothing.
  * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @lineNumber: Interger representing the line number of of the opcode.
  */
-void noper(stack_t **stack, unsigned int line_number)
+void noper(stack_t **stack, unsigned int lineNumber)
 {
 	(void)stack;
-	(void)line_number;
+	(void)lineNumber;
 }
 
 
 /**
  * nodes_swaper - Swaps the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @lineNumber: Interger representing the line number of of the opcode.
  */
-void nodes_swaper(stack_t **stack, unsigned int line_number)
+void nodes_swaper(stack_t **stack, unsigned int lineNumber)
 {
-	stack_t *tmp;
+	stack_t *temp;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		err_hand_2(8, line_number, "swap");
-	tmp = (*stack)->next;
-	(*stack)->next = tmp->next;
-	if (tmp->next != NULL)
-		tmp->next->prev = *stack;
-	tmp->next = *stack;
-	(*stack)->prev = tmp;
-	tmp->prev = NULL;
-	*stack = tmp;
+		err_hand_2(8, lineNumber, "swap");
+	temp = (*stack)->next;
+	(*stack)->next = temp->next;
+	if (temp->next != NULL)
+		temp->next->prev = *stack;
+	temp->next = *stack;
+	(*stack)->prev = temp;
+	temp->prev = NULL;
+	*stack = temp;
 }
 
 /**
  * nodes_incrs - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @lineNumber: Interger representing the line number of of the opcode.
  */
-void nodes_incrs(stack_t **stack, unsigned int line_number)
+void nodes_incrs(stack_t **stack, unsigned int lineNumber)
 {
-	int sum;
+	int total;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		err_hand_2(8, line_number, "add");
+		err_hand_2(8, lineNumber, "add");
 
 	(*stack) = (*stack)->next;
-	sum = (*stack)->n + (*stack)->prev->n;
-	(*stack)->n = sum;
+	total = (*stack)->n + (*stack)->prev->n;
+	(*stack)->n = total;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
@@ -56,20 +56,20 @@ void nodes_incrs(stack_t **stack, unsigned int line_number)
 /**
  * nodes_suber - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @lineNumber: Interger representing the line number of of the opcode.
  */
-void nodes_suber(stack_t **stack, unsigned int line_number)
+void nodes_suber(stack_t **stack, unsigned int lineNumber)
 {
-	int sum;
+	int total;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 
-		err_hand_2(8, line_number, "sub");
+		err_hand_2(8, lineNumber, "sub");
 
 
 	(*stack) = (*stack)->next;
-	sum = (*stack)->n - (*stack)->prev->n;
-	(*stack)->n = sum;
+	total = (*stack)->n - (*stack)->prev->n;
+	(*stack)->n = total;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
@@ -78,20 +78,20 @@ void nodes_suber(stack_t **stack, unsigned int line_number)
 /**
  * nodes_diver - Adds the top two elements of the stack.
  * @stack: Pointer to a pointer pointing to top node of the stack.
- * @line_number: Interger representing the line number of of the opcode.
+ * @lineNumber: Interger representing the line number of of the opcode.
  */
-void nodes_diver(stack_t **stack, unsigned int line_number)
+void nodes_diver(stack_t **stack, unsigned int lineNumber)
 {
-	int sum;
+	int total;
 
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
-		err_hand_2(8, line_number, "div");
+		err_hand_2(8, lineNumber, "div");
 
 	if ((*stack)->n == 0)
-		err_hand_2(9, line_number);
+		err_hand_2(9, lineNumber);
 	(*stack) = (*stack)->next;
-	sum = (*stack)->n / (*stack)->prev->n;
-	(*stack)->n = sum;
+	total = (*stack)->n / (*stack)->prev->n;
+	(*stack)->n = total;
 	free((*stack)->prev);
 	(*stack)->prev = NULL;
 }
